@@ -8,7 +8,16 @@
   
   <div id="app">
     <input type="text" v-model="text">
-    {{ text }}
+    <div>
+      <span>{{ text }}</span>
+      <span></span>
+      <span>
+        <i><em>{{ text }}</em></i>
+      </span>
+    </div>
+
+    <input type="text" v-model="text1">
+    <div>{{ text1 }}</div>
   </div>
 
   <script>
@@ -23,9 +32,9 @@
      
       Object.defineProperty(obj, key, {
         get: function () {
-          console.log(9)
-          // 添加订阅者 watcher 到主题对象 Dep
-          if (Dep.target) dep.addSub(Dep.target);
+          console.log(Dep.target);
+          debugger;
+          if(Dep.target)dep.addSub(Dep.target);
           return val
         },
         set: function (newVal) {
@@ -37,47 +46,69 @@
       });
     }
     function nodeToFragment (node, vm) {
+      var parentNode = node;
+      // 这个地方把事件提为事件代理节约内存
+      function delegate(e){
+       console.log(9)
+        if(e.target.tagName.toLowerCase() == 'input'){
+          vm[e.target.getAttribute('delegate')] = e.target.value;
+        }
+      }
+      parentNode.removeEventListener('input',delegate);
+      parentNode.addEventListener('input',delegate);
+
       var flag = document.createDocumentFragment();
       var child;
-      // 许多同学反应看不懂这一段，这里有必要解释一下
-      // 首先，所有表达式必然会返回一个值，赋值表达式亦不例外
-      // 理解了上面这一点，就能理解 while (child = node.firstChild) 这种用法
-      // 其次，appendChild 方法有个隐蔽的地方，就是调用以后 child 会从原来 DOM 中移除
-      // 所以，第二次循环时，node.firstChild 已经不再是之前的第一个子元素了
+     
       while (child = node.firstChild) {
-        compile(child, vm);
-        flag.appendChild(child); // 将子节点劫持到文档片段中
+        if(child.nodeType !== 3 && child.nodeValue !== false)compile(child, vm,node);
+        flag.appendChild(child); 
       }
       return flag
     }
 
-    function compile (node, vm) {
+    function compile (node, vm,parentNode) {
+
       var reg = /\{\{(.*)\}\}/;
+      var nodeType = node.nodeType;
+
+
       // 节点类型为元素
-      if (node.nodeType === 1) {
-        var attr = node.attributes;
-        // 解析属性
-        for (var i = 0; i < attr.length; i++) {
-          if (attr[i].nodeName == 'v-model') {
-            var name = attr[i].nodeValue; // 获取 v-model 绑定的属性名
-            node.addEventListener('input', function (e) {
-              // 给相应的 data 属性赋值，进而触发该属性的 set 方法
-              vm[name] = e.target.value;
-            });
-            node.value = vm[name]; // 将 data 的值赋给该 node
+      if (nodeType === 1 ) {
+          var key = node.getAttribute('v-model');
+          if(key){
+            key = key.trim();
+            
+            
+            // node.addEventListener('input', function (e) {
+            //   // 给相应的 data 属性赋值，进而触发该属性的 set 方法
+            //   console.log(e)
+            //   vm[key] = e.target.value;
+            // });
+            node.value = vm[key]; 
+
             node.removeAttribute('v-model');
+            node.setAttribute('delegate',key);
+            new Watcher(vm, node, key, 'input');
+          }else{
+            if(node.childNodes.length){
+              for (var i = 0; i < node.childNodes.length; i++) {
+                compile(node.childNodes[i], vm);
+              };
+            }
+            
+            
           }
-        };
-        new Watcher(vm, node, name, 'input');
+          
+
+       
+      }else if(nodeType == 3 && reg.test(node.nodeValue)){
+        
+        var key = RegExp.$1.trim();
+
+        new Watcher(vm, node, key, 'text');
       }
-      // 节点类型为 text
-      if (node.nodeType === 3) {
-        if (reg.test(node.nodeValue)) {
-          var name = RegExp.$1; // 获取匹配到的字符串
-          name = name.trim();
-          new Watcher(vm, node, name, 'text');
-        }
-      }
+      
     }
 
     function Watcher (vm, node, name, nodeType) {
@@ -104,6 +135,8 @@
         this.value = this.vm[this.name]; // 触发相应属性的 get
       }
     }
+
+
     function Dep () {
       this.subs = []
     }
@@ -117,6 +150,9 @@
         });
       }
     }
+
+
+
     function Vue (options) {
       this.data = options.data;
       var data = this.data;
@@ -128,12 +164,18 @@
       // 编译完成后，将 dom 返回到 app 中
       document.getElementById(id).appendChild(dom); 
     }
+
+
+
     var vm = new Vue({
       el: 'app',
       data: {
-        text: 'hello world'
+        text: 'hello world',
+        text1: 'hello world1',
+
       }
     })
+
   </script>
 </body>
 </html>
