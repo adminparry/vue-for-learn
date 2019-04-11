@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<script src="vue.js"></script>
+
+</head>
+
+<body>
+	<div id="app">
+		<span>{{test}}</span>
+	</div>
+</body>
+<script>
+	var app = new Vue({
+		el:'#app',
+		data:{
+			test:'test'
+		},
+		mounted:function(){
+			var context = this;
+
+			document.onclick = function(){
+				debugger;
+				context.test = '99'
+			}
+		}
+	})
+
+	console.log(app,Vue.version)
+</script>
+</html>

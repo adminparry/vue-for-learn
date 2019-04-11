@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<script src="vue.js"></script>
+<script src="vue-router.js"></script>
+
+</head>
+
+<body>
+	<div id="app">
+	  <h1>vue-router!</h1>
+	  <p>
+	    <!-- use router-link component for navigation. -->
+	    <!-- specify the link by passing the `to` prop. -->
+	    <!-- `<router-link>` will be rendered as an `<a>` tag by default -->
+	    <router-link to="/foo">Go to Foo</router-link>
+	    <router-link to="/bar">Go to Bar</router-link>
+	    <router-link to="/defines">defines</router-link>
+	    <router-link to="/user">user</router-link>
+	    <router-link to="/fuck">fuck</router-link>
+	  </p>
+	  <!-- route outlet -->
+	  <!-- component matched by the route will render here -->
+	  <router-view></router-view>
+	</div>
+</body>
+<script>
+	const User = {
+	  template: '<div>User {{ $route.params.id }}</div>',
+	  beforeRouteUpdate (to, from, next) {
+	  	alert('really?')
+	    // react to route changes...
+	    // don't forget to call next()
+	  },
+	  watch: {
+	    '$route' (to, from) {
+	    	alert(999)
+	      // 对路由变化作出响应...
+	    }
+	  }
+	}
+
+	const Defines = {
+	  template: '<div>Defines</div>',
+	  beforeRouteUpdate (to, from, next) {
+	  	alert('really?')
+	    // react to route changes...
+	    // don't forget to call next()
+	  },
+	  watch: {
+	    '$route' (to, from) {
+	    	alert(999)
+	      // 对路由变化作出响应...
+	    }
+	 }
+	}
+
+	const Foo = {
+		template: '<div>foo</div>',
+	}
+	const Bar = {
+		template: '<div>bar</div>',
+	}
+	const notFound = {
+		template: '<div>404</div>',
+	}
+	const Fuck = {
+		template: '<div>Fuck</div>',
+	}
+	 
+	const router = new VueRouter({
+	  routes:[
+	    // 动态路径参数 以冒号开头
+	    { path: '/foo',  component: Foo },
+	    { path: '/bar',  component: Bar },
+	    { path: '/user',  component: User },
+	    { path: '/user/:id',  component: User },
+	    { path: '/defines',  component: Defines },
+	    { path: '/404',  component: notFound },
+	    { path: '*', redirect: '/404' }
+	  ]
+	})
+
+	Vue.use(VueRouter);
+	var app = new Vue({
+		router:router,
+		mounted:function(){
+			var methods = this.$options.methods;
+			document.body.onclick = function(){
+				methods.fuck();
+			}
+		},
+		methods:{
+			fuck:function(){
+				router.addRoutes([{ path: '/fuck',  component: Fuck }]);
+			}
+		}
+	}).$mount('#app')
+
+	console.log(app,Vue.version)
+</script>
+</html>
