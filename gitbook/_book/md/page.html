@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+	
+	<div id="test">
+		<p>{{show}}</p>
+	    <p>{{message | cap}}</p>
+	    <p>{{message | cal 10 20}}</p>  <!--过滤器函数始终以表达式的值作为第一个参数。带引号的参数视为字符串，而不带引号的参数按表达式计算。-->
+	    <p>{{message | sum | currency }}</p> <!--添加两个过滤器,注意不要冲突-->
+	    
+	    
+	</div>
+</body>
+<script>
+ // 注册全局过滤
+Vue.filter('cap', function (value) {
+ 
+  return value.toString(16);
+})
+
+var myVue = new Vue({
+    el: "#test",
+    data: {
+        message:Math.random(),
+        show:22
+    },
+    filters: {
+        sum: function (value) {
+            return value + 4;
+        },
+        cal: function (value, begin, xing) {
+            return value + begin + xing;
+        }
+    }
+});
+
+</script>
+</html>

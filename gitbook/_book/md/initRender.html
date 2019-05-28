@@ -1,0 +1,592 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>initRender · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="callHook.md" />
+    
+    
+    <link rel="prev" href="initEvents.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="vuex.html">
+            
+                <a href="vuex.html">
+            
+                    
+                    vuex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="template.html">
+            
+                <a href="template.html">
+            
+                    
+                    表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="directive.html">
+            
+                <a href="directive.html">
+            
+                    
+                    指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="mixins.html">
+            
+                <a href="mixins.html">
+            
+                    
+                    混入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="component.html">
+            
+                <a href="component.html">
+            
+                    
+                    组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="pipe.html">
+            
+                <a href="pipe.html">
+            
+                    
+                    过滤器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="lookup.html">
+            
+                <a href="lookup.html">
+            
+                    
+                    vue从熟悉api到熟悉源码
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="core_index.html">
+            
+                <a href="core_index.html">
+            
+                    
+                    core/index
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="instance_index.html">
+            
+                <a href="instance_index.html">
+            
+                    
+                    instance/index
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="global-api_index.html">
+            
+                <a href="global-api_index.html">
+            
+                    
+                    global-api/index
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="core_util_env.html">
+            
+                <a href="core_util_env.html">
+            
+                    
+                    core/util/env
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="core_vdom_create-functional-component.html">
+            
+                <a href="core_vdom_create-functional-component.html">
+            
+                    
+                    core/vdom/create-functional-component
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="init.html">
+            
+                <a href="init.html">
+            
+                    
+                    init
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="initLifecycle.html">
+            
+                <a href="initLifecycle.html">
+            
+                    
+                    initLifecycle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="initEvents.html">
+            
+                <a href="initEvents.html">
+            
+                    
+                    initEvents
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8.9" data-path="initRender.html">
+            
+                <a href="initRender.html">
+            
+                    
+                    initRender
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.10" data-path="callHook.md">
+            
+                <span>
+            
+                    
+                    callHook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.11" data-path="initInjections.md">
+            
+                <span>
+            
+                    
+                    initInjections
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.12" data-path="initState.md">
+            
+                <span>
+            
+                    
+                    initState
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.13" data-path="initProvide.md">
+            
+                <span>
+            
+                    
+                    initProvide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.14" data-path="defineReactive.html">
+            
+                <a href="defineReactive.html">
+            
+                    
+                    defineReactive
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="vue-cli.html">
+            
+                <a href="vue-cli.html">
+            
+                    
+                    vue-cli
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="elementui/vue-element.html">
+            
+                <a href="elementui/vue-element.html">
+            
+                    
+                    vue-element
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >initRender</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <pre><code class="lang-javascript"><span class="hljs-comment">/* @flow */</span>
+
+<span class="hljs-keyword">import</span> {
+  warn,
+  nextTick,
+  emptyObject,
+  handleError,
+  defineReactive
+} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../util/index&apos;</span>
+
+<span class="hljs-keyword">import</span> { createElement } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../vdom/create-element&apos;</span>
+<span class="hljs-keyword">import</span> { installRenderHelpers } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./render-helpers/index&apos;</span>
+<span class="hljs-keyword">import</span> { resolveSlots } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./render-helpers/resolve-slots&apos;</span>
+<span class="hljs-keyword">import</span> VNode, { createEmptyVNode } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../vdom/vnode&apos;</span>
+
+<span class="hljs-keyword">import</span> { isUpdatingChildComponent } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./lifecycle&apos;</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">initRender</span> (<span class="hljs-params">vm: Component</span>) </span>{
+  vm._vnode = <span class="hljs-literal">null</span> <span class="hljs-comment">// the root of the child tree</span>
+  vm._staticTrees = <span class="hljs-literal">null</span> <span class="hljs-comment">// v-once cached trees</span>
+  <span class="hljs-keyword">const</span> options = vm.$options
+  <span class="hljs-keyword">const</span> parentVnode = vm.$vnode = options._parentVnode <span class="hljs-comment">// the placeholder node in parent tree</span>
+  <span class="hljs-keyword">const</span> renderContext = parentVnode &amp;&amp; parentVnode.context
+  vm.$slots = resolveSlots(options._renderChildren, renderContext)
+  vm.$scopedSlots = emptyObject
+  <span class="hljs-comment">// bind the createElement fn to this instance</span>
+  <span class="hljs-comment">// so that we get proper render context inside it.</span>
+  <span class="hljs-comment">// args order: tag, data, children, normalizationType, alwaysNormalize</span>
+  <span class="hljs-comment">// internal version is used by render functions compiled from templates</span>
+  vm._c = (a, b, c, d) =&gt; createElement(vm, a, b, c, d, <span class="hljs-literal">false</span>)
+  <span class="hljs-comment">// normalization is always applied for the public version, used in</span>
+  <span class="hljs-comment">// user-written render functions.</span>
+  vm.$createElement = (a, b, c, d) =&gt; createElement(vm, a, b, c, d, <span class="hljs-literal">true</span>)
+
+  <span class="hljs-comment">// $attrs &amp; $listeners are exposed for easier HOC creation.</span>
+  <span class="hljs-comment">// they need to be reactive so that HOCs using them are always updated</span>
+  <span class="hljs-keyword">const</span> parentData = parentVnode &amp;&amp; parentVnode.data
+
+  <span class="hljs-comment">/* istanbul ignore else */</span>
+  <span class="hljs-keyword">if</span> (process.env.NODE_ENV !== <span class="hljs-string">&apos;production&apos;</span>) {
+    defineReactive(vm, <span class="hljs-string">&apos;$attrs&apos;</span>, parentData &amp;&amp; parentData.attrs || emptyObject, () =&gt; {
+      !isUpdatingChildComponent &amp;&amp; warn(<span class="hljs-string">`$attrs is readonly.`</span>, vm)
+    }, <span class="hljs-literal">true</span>)
+    defineReactive(vm, <span class="hljs-string">&apos;$listeners&apos;</span>, options._parentListeners || emptyObject, () =&gt; {
+      !isUpdatingChildComponent &amp;&amp; warn(<span class="hljs-string">`$listeners is readonly.`</span>, vm)
+    }, <span class="hljs-literal">true</span>)
+  } <span class="hljs-keyword">else</span> {
+    defineReactive(vm, <span class="hljs-string">&apos;$attrs&apos;</span>, parentData &amp;&amp; parentData.attrs || emptyObject, <span class="hljs-literal">null</span>, <span class="hljs-literal">true</span>)
+    defineReactive(vm, <span class="hljs-string">&apos;$listeners&apos;</span>, options._parentListeners || emptyObject, <span class="hljs-literal">null</span>, <span class="hljs-literal">true</span>)
+  }
+}
+</code></pre>
+<p>&#x5728;&#x6B64;&#x6587;&#x4EF6;&#x4E2D;&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x5730;&#x65B9;&#x6709;&#x4E24;&#x4E2A; &#x4E00;&#x4E2A;&#x662F;defineReactive &#x53E6;&#x4E00;&#x4E2A;&#x662F; resolveSlots</p>
+<p><a href="defineReactive.html">defineReactive</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="initEvents.html" class="navigation navigation-prev " aria-label="Previous page: initEvents">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="callHook.md" class="navigation navigation-next " aria-label="Next page: callHook">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"initRender","level":"1.8.9","depth":2,"next":{"title":"callHook","level":"1.8.10","depth":2,"path":"md/callHook.md","ref":"./md/callHook.md","articles":[]},"previous":{"title":"initEvents","level":"1.8.8","depth":2,"path":"md/initEvents.md","ref":"./md/initEvents.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/initRender.md","mtime":"2019-04-16T13:00:26.041Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-20T10:16:07.476Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

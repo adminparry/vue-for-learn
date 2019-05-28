@@ -1,0 +1,679 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>vue从熟悉api到熟悉源码 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="core_index.html" />
+    
+    
+    <link rel="prev" href="pipe.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="vuex.html">
+            
+                <a href="vuex.html">
+            
+                    
+                    vuex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="template.html">
+            
+                <a href="template.html">
+            
+                    
+                    表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="directive.html">
+            
+                <a href="directive.html">
+            
+                    
+                    指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="mixins.html">
+            
+                <a href="mixins.html">
+            
+                    
+                    混入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="component.html">
+            
+                <a href="component.html">
+            
+                    
+                    组件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="pipe.html">
+            
+                <a href="pipe.html">
+            
+                    
+                    过滤器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8" data-path="lookup.html">
+            
+                <a href="lookup.html">
+            
+                    
+                    vue从熟悉api到熟悉源码
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="core_index.html">
+            
+                <a href="core_index.html">
+            
+                    
+                    core/index
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="instance_index.html">
+            
+                <a href="instance_index.html">
+            
+                    
+                    instance/index
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="global-api_index.html">
+            
+                <a href="global-api_index.html">
+            
+                    
+                    global-api/index
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="core_util_env.html">
+            
+                <a href="core_util_env.html">
+            
+                    
+                    core/util/env
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="core_vdom_create-functional-component.html">
+            
+                <a href="core_vdom_create-functional-component.html">
+            
+                    
+                    core/vdom/create-functional-component
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="init.html">
+            
+                <a href="init.html">
+            
+                    
+                    init
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="initLifecycle.html">
+            
+                <a href="initLifecycle.html">
+            
+                    
+                    initLifecycle
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="initEvents.html">
+            
+                <a href="initEvents.html">
+            
+                    
+                    initEvents
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9" data-path="initRender.html">
+            
+                <a href="initRender.html">
+            
+                    
+                    initRender
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.10" data-path="callHook.md">
+            
+                <span>
+            
+                    
+                    callHook
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.11" data-path="initInjections.md">
+            
+                <span>
+            
+                    
+                    initInjections
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.12" data-path="initState.md">
+            
+                <span>
+            
+                    
+                    initState
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.13" data-path="initProvide.md">
+            
+                <span>
+            
+                    
+                    initProvide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.14" data-path="defineReactive.html">
+            
+                <a href="defineReactive.html">
+            
+                    
+                    defineReactive
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="vue-cli.html">
+            
+                <a href="vue-cli.html">
+            
+                    
+                    vue-cli
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="elementui/vue-element.html">
+            
+                <a href="elementui/vue-element.html">
+            
+                    
+                    vue-element
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >vue从熟悉api到熟悉源码</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="vue-&#x4ECE;&#x719F;&#x6089;api&#x5230;&#x719F;&#x6089;&#x6E90;&#x7801;">vue &#x4ECE;&#x719F;&#x6089;api&#x5230;&#x719F;&#x6089;&#x6E90;&#x7801;</h1>
+<p>github&#x6E90;&#x7801;&#x5730;&#x5740; <a href="https://github.com/vuejs/vue" target="_blank">https://github.com/vuejs/vue</a></p>
+<p>&#x9996;&#x5148;&#x719F;&#x6089;&#x4E00;&#x4E0B;&#x76EE;&#x5F55;&#x7ED3;&#x6784; &#x5F53;&#x7136;&#x628A;&#x4EE3;&#x7801;checkout&#x51FA;&#x6765;&#x4F1A;&#x66F4;&#x65B9;&#x4FBF;&#x64CD;&#x4F5C;&#x70B9;</p>
+<p><img src="../assets/WechatIMG24.png" alt="dir"></p>
+<p>yarn.lock &#x4E0D;&#x770B; &#x662F;&#x4E2A;&#x5305;&#x7BA1;&#x7406;&#x5DE5;&#x5177;&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;</p>
+<p>package.json &#x8FD9;&#x4E2A;&#x719F;&#x6089; &#x8FD9;&#x4E2A;&#x76F8;&#x5F53;&#x4E8E;&#x5DE5;&#x7A0B;&#x7684;&#x7D22;&#x5F15; &#x7ECF;&#x9A8C;&#x544A;&#x8BC9;&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x770B;script</p>
+<pre><code class="lang-json">
+<span class="hljs-string">&quot;scripts&quot;</span>: {
+    <span class="hljs-string">&quot;dev&quot;</span>: <span class="hljs-string">&quot;rollup -w -c scripts/config.js --environment TARGET:web-full-dev&quot;</span>,
+    <span class="hljs-string">&quot;dev:cjs&quot;</span>: <span class="hljs-string">&quot;rollup -w -c scripts/config.js --environment TARGET:web-runtime-cjs&quot;</span>,
+    <span class="hljs-string">&quot;dev:esm&quot;</span>: <span class="hljs-string">&quot;rollup -w -c scripts/config.js --environment TARGET:web-runtime-esm&quot;</span>,
+    <span class="hljs-string">&quot;dev:test&quot;</span>: <span class="hljs-string">&quot;karma start test/unit/karma.dev.config.js&quot;</span>,
+    <span class="hljs-string">&quot;dev:ssr&quot;</span>: <span class="hljs-string">&quot;rollup -w -c scripts/config.js --environment TARGET:web-server-renderer&quot;</span>,
+    <span class="hljs-string">&quot;dev:compiler&quot;</span>: <span class="hljs-string">&quot;rollup -w -c scripts/config.js --environment TARGET:web-compiler &quot;</span>,
+    <span class="hljs-string">&quot;dev:weex&quot;</span>: <span class="hljs-string">&quot;rollup -w -c scripts/config.js --environment TARGET:weex-framework&quot;</span>,
+    <span class="hljs-string">&quot;dev:weex:factory&quot;</span>: <span class="hljs-string">&quot;rollup -w -c scripts/config.js --environment TARGET:weex-factory&quot;</span>,
+    <span class="hljs-string">&quot;dev:weex:compiler&quot;</span>: <span class="hljs-string">&quot;rollup -w -c scripts/config.js --environment TARGET:weex-compiler &quot;</span>,
+    <span class="hljs-string">&quot;build&quot;</span>: <span class="hljs-string">&quot;node scripts/build.js&quot;</span>,
+    <span class="hljs-string">&quot;build:ssr&quot;</span>: <span class="hljs-string">&quot;npm run build -- web-runtime-cjs,web-server-renderer&quot;</span>,
+    <span class="hljs-string">&quot;build:weex&quot;</span>: <span class="hljs-string">&quot;npm run build -- weex&quot;</span>,
+    <span class="hljs-string">&quot;test&quot;</span>: <span class="hljs-string">&quot;npm run lint &amp;&amp; flow check &amp;&amp; npm run test:types &amp;&amp; npm run test:cover &amp;&amp; npm run test:e2e -- --env phantomjs &amp;&amp; npm run test:ssr &amp;&amp; npm run test:weex&quot;</span>,
+    <span class="hljs-string">&quot;test:unit&quot;</span>: <span class="hljs-string">&quot;karma start test/unit/karma.unit.config.js&quot;</span>,
+    <span class="hljs-string">&quot;test:cover&quot;</span>: <span class="hljs-string">&quot;karma start test/unit/karma.cover.config.js&quot;</span>,
+    <span class="hljs-string">&quot;test:e2e&quot;</span>: <span class="hljs-string">&quot;npm run build -- web-full-prod,web-server-basic-renderer &amp;&amp; node test/e2e/runner.js&quot;</span>,
+    <span class="hljs-string">&quot;test:weex&quot;</span>: <span class="hljs-string">&quot;npm run build:weex &amp;&amp; jasmine JASMINE_CONFIG_PATH=test/weex/jasmine.json&quot;</span>,
+    <span class="hljs-string">&quot;test:ssr&quot;</span>: <span class="hljs-string">&quot;npm run build:ssr &amp;&amp; jasmine JASMINE_CONFIG_PATH=test/ssr/jasmine.json&quot;</span>,
+    <span class="hljs-string">&quot;test:sauce&quot;</span>: <span class="hljs-string">&quot;npm run sauce -- 0 &amp;&amp; npm run sauce -- 1 &amp;&amp; npm run sauce -- 2&quot;</span>,
+    <span class="hljs-string">&quot;test:types&quot;</span>: <span class="hljs-string">&quot;tsc -p ./types/test/tsconfig.json&quot;</span>,
+    <span class="hljs-string">&quot;lint&quot;</span>: <span class="hljs-string">&quot;eslint --fix src scripts test&quot;</span>,
+    <span class="hljs-string">&quot;flow&quot;</span>: <span class="hljs-string">&quot;flow check&quot;</span>,
+    <span class="hljs-string">&quot;sauce&quot;</span>: <span class="hljs-string">&quot;karma start test/unit/karma.sauce.config.js&quot;</span>,
+    <span class="hljs-string">&quot;bench:ssr&quot;</span>: <span class="hljs-string">&quot;npm run build:ssr &amp;&amp; node benchmarks/ssr/renderToString.js &amp;&amp; node benchmarks/ssr/renderToStream.js&quot;</span>,
+    <span class="hljs-string">&quot;release&quot;</span>: <span class="hljs-string">&quot;bash scripts/release.sh&quot;</span>,
+    <span class="hljs-string">&quot;release:weex&quot;</span>: <span class="hljs-string">&quot;bash scripts/release-weex.sh&quot;</span>,
+    <span class="hljs-string">&quot;release:note&quot;</span>: <span class="hljs-string">&quot;node scripts/gen-release-note.js&quot;</span>,
+    <span class="hljs-string">&quot;commit&quot;</span>: <span class="hljs-string">&quot;git-cz&quot;</span>
+  }
+</code></pre>
+<p> &#x5DE5;&#x7A0B;&#x6253;&#x5305;&#x7528;&#x7684;&#x662F;rollup &#x5982;&#x679C;&#x4E0D;&#x4E86;&#x89E3;&#x7684;&#x8BDD;&#x53EF;&#x4EE5;&#x53BB;&#x8FD9;&#x91CC;&#x770B;&#x770B; <a href="https://www.rollupjs.com/guide/zh" target="_blank">https://www.rollupjs.com/guide/zh</a></p>
+<p> &#x76F4;&#x63A5;&#x770B;&#x7B2C;&#x4E00;&#x4E2A; &quot;dev&quot;: &quot;rollup -w -c scripts/config.js --environment TARGET:web-full-dev&quot;
+ &#x76F4;&#x63A5;&#x770B;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> aliases = <span class="hljs-built_in">require</span>(<span class="hljs-string">&apos;./alias&apos;</span>)
+<span class="hljs-keyword">const</span> resolve = p =&gt; {
+  <span class="hljs-keyword">const</span> base = p.split(<span class="hljs-string">&apos;/&apos;</span>)[<span class="hljs-number">0</span>]
+
+  <span class="hljs-keyword">if</span> (aliases[base]) {
+    <span class="hljs-keyword">return</span> path.resolve(aliases[base], p.slice(base.length + <span class="hljs-number">1</span>))
+  } <span class="hljs-keyword">else</span> {
+    <span class="hljs-keyword">return</span> path.resolve(__dirname, <span class="hljs-string">&apos;../&apos;</span>, p)
+  }
+}
+...
+<span class="hljs-string">&apos;web-full-dev&apos;</span>: {
+    entry: resolve(<span class="hljs-string">&apos;web/entry-runtime-with-compiler.js&apos;</span>),
+    dest: resolve(<span class="hljs-string">&apos;dist/vue.js&apos;</span>),
+    format: <span class="hljs-string">&apos;umd&apos;</span>,
+    env: <span class="hljs-string">&apos;development&apos;</span>,
+    alias: { he: <span class="hljs-string">&apos;./entity-decoder&apos;</span> },
+    banner
+  }
+</code></pre>
+<p>&#x5165;&#x53E3;&#x6587;&#x4EF6;&#x5DF2;&#x7ECF;&#x627E;&#x5230; src/platforms/web/entry-runtime.js</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">/* @flow */</span>
+
+<span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;core/index&apos;</span>
+<span class="hljs-keyword">import</span> config <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;core/config&apos;</span>
+<span class="hljs-keyword">import</span> { extend, noop } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;shared/util&apos;</span>
+<span class="hljs-keyword">import</span> { mountComponent } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;core/instance/lifecycle&apos;</span>
+<span class="hljs-keyword">import</span> { devtools, inBrowser, isChrome } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;core/util/index&apos;</span>
+
+<span class="hljs-keyword">import</span> {
+  query,
+  mustUseProp,
+  isReservedTag,
+  isReservedAttr,
+  getTagNamespace,
+  isUnknownElement
+} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;web/util/index&apos;</span>
+
+<span class="hljs-keyword">import</span> { patch } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./patch&apos;</span>
+<span class="hljs-keyword">import</span> platformDirectives <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./directives/index&apos;</span>
+<span class="hljs-keyword">import</span> platformComponents <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./components/index&apos;</span>
+
+<span class="hljs-comment">// install platform specific utils</span>
+Vue.config.mustUseProp = mustUseProp
+Vue.config.isReservedTag = isReservedTag
+Vue.config.isReservedAttr = isReservedAttr
+Vue.config.getTagNamespace = getTagNamespace
+Vue.config.isUnknownElement = isUnknownElement
+
+<span class="hljs-comment">// install platform runtime directives &amp; components</span>
+extend(Vue.options.directives, platformDirectives)
+extend(Vue.options.components, platformComponents)
+
+<span class="hljs-comment">// install platform patch function</span>
+Vue.prototype.__patch__ = inBrowser ? patch : noop
+
+<span class="hljs-comment">// public mount method</span>
+Vue.prototype.$mount = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">
+  el?: string | Element,
+  hydrating?: boolean
+</span>): <span class="hljs-title">Component</span> </span>{
+  el = el &amp;&amp; inBrowser ? query(el) : <span class="hljs-literal">undefined</span>
+  <span class="hljs-keyword">return</span> mountComponent(<span class="hljs-keyword">this</span>, el, hydrating)
+}
+
+<span class="hljs-comment">// devtools global hook</span>
+<span class="hljs-comment">/* istanbul ignore next */</span>
+<span class="hljs-keyword">if</span> (inBrowser) {
+  setTimeout(() =&gt; {
+    <span class="hljs-keyword">if</span> (config.devtools) {
+      <span class="hljs-keyword">if</span> (devtools) {
+        devtools.emit(<span class="hljs-string">&apos;init&apos;</span>, Vue)
+      } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (
+        process.env.NODE_ENV !== <span class="hljs-string">&apos;production&apos;</span> &amp;&amp;
+        process.env.NODE_ENV !== <span class="hljs-string">&apos;test&apos;</span> &amp;&amp;
+        isChrome
+      ) {
+        <span class="hljs-built_in">console</span>[<span class="hljs-built_in">console</span>.info ? <span class="hljs-string">&apos;info&apos;</span> : <span class="hljs-string">&apos;log&apos;</span>](
+          <span class="hljs-string">&apos;Download the Vue Devtools extension for a better development experience:\n&apos;</span> +
+          <span class="hljs-string">&apos;https://github.com/vuejs/vue-devtools&apos;</span>
+        )
+      }
+    }
+    <span class="hljs-keyword">if</span> (process.env.NODE_ENV !== <span class="hljs-string">&apos;production&apos;</span> &amp;&amp;
+      process.env.NODE_ENV !== <span class="hljs-string">&apos;test&apos;</span> &amp;&amp;
+      config.productionTip !== <span class="hljs-literal">false</span> &amp;&amp;
+      <span class="hljs-keyword">typeof</span> <span class="hljs-built_in">console</span> !== <span class="hljs-string">&apos;undefined&apos;</span>
+    ) {
+      <span class="hljs-built_in">console</span>[<span class="hljs-built_in">console</span>.info ? <span class="hljs-string">&apos;info&apos;</span> : <span class="hljs-string">&apos;log&apos;</span>](
+        <span class="hljs-string">`You are running Vue in development mode.\n`</span> +
+        <span class="hljs-string">`Make sure to turn on production mode when deploying for production.\n`</span> +
+        <span class="hljs-string">`See more tips at https://vuejs.org/guide/deployment.html`</span>
+      )
+    }
+  }, <span class="hljs-number">0</span>)
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Vue
+</code></pre>
+<p><a href="core_index.html">core/index</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="pipe.html" class="navigation navigation-prev " aria-label="Previous page: 过滤器">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="core_index.html" class="navigation navigation-next " aria-label="Next page: core/index">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"vue从熟悉api到熟悉源码","level":"1.8","depth":1,"next":{"title":"core/index","level":"1.8.1","depth":2,"path":"md/core_index.md","ref":"./md/core_index.md","articles":[]},"previous":{"title":"过滤器","level":"1.7","depth":1,"path":"md/pipe.md","ref":"./md/pipe.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/lookup.md","mtime":"2019-04-11T08:00:42.177Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-20T10:16:07.476Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
