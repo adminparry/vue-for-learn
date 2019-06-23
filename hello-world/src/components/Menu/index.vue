@@ -3,27 +3,30 @@
     <!-- <el-scrollbar class="scrollbar-wrapper" wrap-class="scrollbar-wrap"> -->
     <el-menu
       :default-active="defaultActive"
-      background-color="#545c64"
-      text-color="#fff"
+      :background-color="color"
+      :text-color="fontColor"
+      active-text-color="#ccc"
       class="el-menu-vertical"
       @open="handleOpen"
       @close="handleClose"
-      :collapse="isCollapse"
+      :collapse="collapse"
     >
-  
-      <SidebarItem v-for="item of routes" :key="item.path" :item="item" :path="item.path"/>
+      
+      <SidebarItem v-for="item of routes" :key="item.name" :item="item" :path="item.path"/>
     
     </el-menu>
      <!-- </el-scrollbar> -->
   </div>
 </template>
 <script>
+import Mixin from '@/mixin/elementGlobal';
+
 import { mapGetters } from "vuex";
 import variables from "@/styles/variables.scss";
 import SidebarItem from "./SidebarItem";
 
 export default {
-
+  mixins:[Mixin],
   components: {
     SidebarItem
   },
@@ -46,10 +49,15 @@ export default {
     variables() {
       return variables;
     },
-    isCollapse() {
-      console.log(this.routes);
-      return !this.sidebar.opened;
-    }
+    collapse: {
+        get() {
+            return this.$store.getters.collapse;
+        },
+        set(val) {
+
+            this.$store.state.elementSettings.collapse = val;
+        }
+    },
   }
 };
 </script>

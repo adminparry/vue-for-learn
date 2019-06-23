@@ -1,20 +1,28 @@
 <template>
 
+    <!-- 如果路由中的子路由只有一个则不进行下拉 -->
+    <!-- 顶级路径前面必须要加个/ children路由path前不能加/ -->
+    <router-link class="no-underline" v-if="!item.children" :to="path">
+    <el-menu-item :index="path">
+        <i :class="item.icon || 'el-icon-location'"></i>
+        <span slot="title">{{item.meta.title}}</span>
+    </el-menu-item>
+    </router-link>
 
-      <router-link class="no-underline" v-if="!item.children" :to="path">
-      <el-menu-item :index="path">
-         <i :class="item.icon || 'el-icon-location'"></i>
-          <span slot="title">{{item.meta.title}}</span>
-      </el-menu-item>
-      </router-link>
+    <router-link class="no-underline" v-else-if="item.children.length == 1" :to="path.replace(/^(\/\w+)$/,'$1/') + item.children[0].path">
+    <el-menu-item :index="path.replace(/^(\/\w+)$/,'$1/') + item.children[0].path">
+        <i :class="item.children[0].icon || 'el-icon-location'"></i>
+        <span slot="title">{{item.children[0].meta.title}}</span>
+    </el-menu-item>
+    </router-link>
 
-    <el-submenu v-else :index="item.path">
+    <el-submenu v-else :index="path" class="submenu">
         <template slot="title">
-          <i class="el-icon-location"></i>
+          <i :class="item.icon || 'el-icon-location'"></i>
           <span slot="title">{{item.meta.title}}</span>
         </template>
         <sidebar-item v-for="itemChild of item.children" :key="itemChild.path"
-        :item="itemChild" :path="item.path + itemChild.path">
+        :item="itemChild" :path="[path, itemChild.path].join('/')">
 
         </sidebar-item>
     </el-submenu>
@@ -24,6 +32,7 @@
 .no-underline{
     text-decoration: none;
 }
+
 </style>
 
 <script>

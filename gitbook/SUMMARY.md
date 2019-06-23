@@ -14,6 +14,8 @@
 
 * [过滤器](./md/pipe.md)
 
+* [vue实例中添加方法](./md/use.md)
+
 * [vue从熟悉api到熟悉源码](./md/lookup.md)
 	* [core/index](./md/core_index.md)
 	* [instance/index](./md/instance_index.md)

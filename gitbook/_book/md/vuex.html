@@ -455,6 +455,101 @@
                                 <h1 id="vuex">vuex</h1>
 <p>Vuex&#x662F;&#x4E00;&#x4E2A;&#x4E13;&#x95E8;&#x4E3A;Vue.js&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5F00;&#x53D1;&#x7684;&#x72B6;&#x6001;&#x7BA1;&#x7406;&#x6A21;&#x5F0F;, &#x5B83;&#x91C7;&#x7528;&#x96C6;&#x4E2D;&#x5F0F;&#x5B58;&#x50A8;&#x7BA1;&#x7406;&#x6240;&#x6709;&#x7EC4;&#x4EF6;&#x7684;&#x516C;&#x5171;&#x72B6;&#x6001;, &#x5E76;&#x4EE5;&#x76F8;&#x5E94;&#x7684;&#x89C4;&#x5219;&#x4FDD;&#x8BC1;&#x72B6;&#x6001;&#x4EE5;&#x4E00;&#x79CD;&#x53EF;&#x9884;&#x6D4B;&#x7684;&#x65B9;&#x5F0F;&#x53D1;&#x751F;&#x53D8;&#x5316;.</p>
 <p><a href="https://vuex.vuejs.org/" target="_blank"><img src="vuex_pic.png" alt="core" title="vuex"></a></p>
+<h3 id="storejs">store.js</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
+<span class="hljs-keyword">import</span> Vuex <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vuex&apos;</span>
+<span class="hljs-keyword">import</span> { stores , getters } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;@/stores&apos;</span>
+
+Vue.use(Vuex)
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> Vuex.Store({
+  modules: stores,
+  getters,
+})
+&lt;!-- &#x53EF;&#x9009;&#x53C2;&#x6570; &#x4F7F;&#x7528;modules&#x4E3A;&#x547D;&#x540D;&#x6A21;&#x5F0F;: &#x53EF;&#x4EE5;&#x5728;&#x8FDB;&#x884C;&#x521B;&#x5EFA; storeOptions --&gt;
+<span class="hljs-keyword">export</span> interface StoreOptions&lt;S&gt; {
+  state?: S | (() =&gt; S);
+  getters?: GetterTree&lt;S, S&gt;;
+  actions?: ActionTree&lt;S, S&gt;;
+  mutations?: MutationTree&lt;S&gt;;
+  modules?: ModuleTree&lt;S&gt;;
+  plugins?: Plugin&lt;S&gt;[];
+  strict?: boolean;
+}
+</code></pre>
+<h3 id="storesindexjs">stores/index.js</h3>
+<pre><code class="lang-javascript">&lt;!-- &#x83B7;&#x53D6;&#x5BFC;&#x5165;modules&#x4E0B;&#x6240;&#x6709;js&#x6587;&#x4EF6; --&gt;
+<span class="hljs-keyword">const</span> modulesFiles = <span class="hljs-built_in">require</span>.context(<span class="hljs-string">&apos;./modules&apos;</span>, <span class="hljs-literal">true</span>, <span class="hljs-regexp">/\.js$/</span>)
+<span class="hljs-keyword">const</span> json = {};
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> stores = modulesFiles.keys().reduce((modules, modulePath) =&gt; {
+  <span class="hljs-comment">// set &apos;./app.js&apos; =&gt; &apos;app&apos;</span>
+  <span class="hljs-keyword">const</span> moduleName = modulePath.replace(<span class="hljs-regexp">/^\.\/(.*)\.\w+$/</span>, <span class="hljs-string">&apos;$1&apos;</span>)
+  <span class="hljs-keyword">const</span> value = modulesFiles(modulePath)
+  &lt;!-- &#x5408;&#x5E76;&#x6240;&#x6709;&#x9700;&#x8981;&#x7684;getter --&gt;
+  <span class="hljs-built_in">Object</span>.assign(json,value[<span class="hljs-string">&apos;getter&apos;</span>]);
+
+  modules[moduleName] = value[moduleName] || value.default
+  <span class="hljs-keyword">return</span> modules
+}, {})
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> getters = json
+</code></pre>
+<h3 id="storesmodulesappjs">stores/modules/app.js</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">const</span> state = { 
+    sidebar: {
+        opened: localStorage.getItem(<span class="hljs-string">&apos;sidebarStatus&apos;</span>) ? localStorage.getItem(<span class="hljs-string">&apos;sidebarStatus&apos;</span>)  : <span class="hljs-literal">true</span>,
+
+    },
+    device: <span class="hljs-string">&apos;desktop&apos;</span>,
+    size: localStorage.getItem(<span class="hljs-string">&apos;size&apos;</span>) || <span class="hljs-string">&apos;Medium&apos;</span>
+}
+<span class="hljs-keyword">const</span> mutations = {
+    TOGGLE_SIDEBAR: state =&gt; {
+        state.sidebar.opened = !state.sidebar.opened;
+
+    },
+    SET_SIZE: (state, size) =&gt; {
+        state.size = size;
+        localStorage.setItem(<span class="hljs-string">&apos;size&apos;</span>, size);
+    }
+}
+<span class="hljs-keyword">const</span> actions = {
+    toggleSideBar({ commit }) {
+        commit(<span class="hljs-string">&apos;TOGGLE_SIDEBAR&apos;</span>)
+    },
+    setSize({ commit }, size){
+        commit(<span class="hljs-string">&apos;SET_SIZE&apos;</span>, size)
+    }
+}
+&lt;!-- &#x7B80;&#x5316;&#x547D;&#x540D;&#x7ED9;&#x9876;&#x5C42; --&gt;
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> getter = {
+    slidebar: state =&gt; state.app.slidebar,
+    size: state =&gt; state.app.size,
+    device: state =&gt; state.app.device,
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+    namespaced: <span class="hljs-literal">true</span>,
+    state,
+    mutations,
+    actions,
+}
+</code></pre>
+<h4 id="&#x5728;vue&#x5B9E;&#x4F8B;&#x4E2D;&#x64CD;&#x4F5C;store">&#x5728;vue&#x5B9E;&#x4F8B;&#x4E2D;&#x64CD;&#x4F5C;store</h4>
+<pre><code class="lang-javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
+    computed: {
+        size: {
+            get() {
+                <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.$store.getters.size;
+            },
+            set(val) {
+                <span class="hljs-keyword">this</span>.$store.state.app.size = val;
+            }
+        }
+    }
+}
+</code></pre>
 
                                 
                                 </section>
@@ -498,7 +593,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"vuex","level":"1.2","depth":1,"next":{"title":"表达式","level":"1.3","depth":1,"path":"md/template.md","ref":"./md/template.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/vuex.md","mtime":"2018-11-09T15:34:28.463Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-20T10:16:07.476Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"vuex","level":"1.2","depth":1,"next":{"title":"表达式","level":"1.3","depth":1,"path":"md/template.md","ref":"./md/template.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/vuex.md","mtime":"2019-05-21T08:54:51.145Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-28T06:36:41.045Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

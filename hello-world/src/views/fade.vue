@@ -1,63 +1,87 @@
 <template>
-    <div>
-        <el-radio-group v-model="isCollapse" style="margin-bottom: 20px;">
-  <el-radio-button :label="false">展开</el-radio-button>
-  <el-radio-button :label="true">收起</el-radio-button>
-</el-radio-group>
-<el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
-  <el-submenu index="1">
-    <template slot="title">
-      <i class="el-icon-location"></i>
-      <span slot="title">导航一</span>
-    </template>
-    <el-menu-item-group>
-      <span slot="title">分组一</span>
-      <el-menu-item index="1-1">选项1</el-menu-item>
-      <el-menu-item index="1-2">选项2</el-menu-item>
-    </el-menu-item-group>
-    <el-menu-item-group title="分组2">
-      <el-menu-item index="1-3">选项3</el-menu-item>
-    </el-menu-item-group>
-    <el-submenu index="1-4">
-      <span slot="title">选项4</span>
-      <el-menu-item index="1-4-1">选项1</el-menu-item>
-    </el-submenu>
-  </el-submenu>
-  <el-menu-item index="2">
-    <i class="el-icon-menu"></i>
-    <span slot="title">导航二</span>
-  </el-menu-item>
-  <el-menu-item index="3">
-    <i class="el-icon-setting"></i>
-    <span slot="title">导航三</span>
-  </el-menu-item>
-</el-menu>
+<div class="radio-group-container">
 
-    </div>
+
+
+    <el-form  label-suffix=":" :size="size">
+    <el-form-item label="整体风格大小" >
+
+      <el-radio 
+
+      v-model="size"  v-for="item of sizeOptions" :key="item.label" 
+    :label="item.label" 
+    >{{ item.value }}</el-radio>
+
+
+    </el-form-item>
+    <el-form-item label="菜单方式">
+      <el-radio v-model="collapse"  v-for="item of menuOptions" :key="item.label" 
+    :label="item.label"
+    >{{ item.value }}</el-radio>
+    
+
+    </el-form-item>
+    <el-form-item label="表单排列方式">
+      <el-radio v-model="pos"  v-for="item of positionOptions" :key="item.label" 
+    :label="item.label"
+    >{{ item.value }}</el-radio>
+    
+
+    </el-form-item>
+    <el-form-item label="颜色风格">
+     <el-color-picker v-model="color" :size="size"></el-color-picker>
+    </el-form-item>
+
+
+    <el-form-item label="字体颜色风格">
+     <el-color-picker v-model="fontColor" :size="size"></el-color-picker>
+    </el-form-item>
+
+
+    <el-form-item>
+    </el-form-item>
+  </el-form>    
+   
+
+</div>
+  
 </template>
-
-
-<style>
-  .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
-    min-height: 400px;
-  }
-</style>
-
 <script>
-  export default {
+import Mixin from '@/mixin/elementGlobal'
+
+export default {
+    mixins:[Mixin],
     data() {
-      return {
-        isCollapse: true
-      };
+        return {
+            radio6: '北京',
+            menuOptions:[
+                {label:true, value:'收起'},
+                {label:false, value:'展开'},
+
+            ],
+            positionOptions:[
+                {label:'left',value:'左'},
+                {label:'right',value:'右'},
+                {label:'top',value:'上'},
+                
+            ],
+            sizeOptions: [
+                { label: 'default', value: '默认'},
+                { label: 'medium', value: '中等'},
+                { label: 'small', value: '小'},
+                { label: 'mini', value: '超小'},
+            ],
+
+        }
     },
+   
     methods: {
-      handleOpen(key, keyPath) {
-        console.log(key, keyPath);
-      },
-      handleClose(key, keyPath) {
-        console.log(key, keyPath);
-      }
+        handleSetSize(size){
+            alert(size)
+            //this.$ELEMENT.size = 'default';
+            // this.$store.dispatch('app/setSize', size);
+
+        }
     }
-  }
+};
 </script>

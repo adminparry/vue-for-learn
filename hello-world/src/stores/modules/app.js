@@ -9,7 +9,7 @@ const state = {
 }
 const mutations = {
     TOGGLE_SIDEBAR: state => {
-        state.sidebar.opened = !state.sidebar.opened;
+        state.sidebar.opened = !JSON.parse(state.sidebar.opened);
 
     },
     SET_SIZE: (state, size) => {
