@@ -33,3 +33,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 npm install nprogress --save
 npm install element-ui --save
+``` bash
+vue add element

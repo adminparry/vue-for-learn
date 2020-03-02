@@ -1,3 +1,5 @@
+const target = process.env.DYNO ? 'https://big-middle-platform.herokuapp.com' : 'http://localhost:3000';
+
 module.exports = {
   pluginOptions: {
     apollo: {
@@ -6,11 +8,11 @@ module.exports = {
     }
   },
   baseUrl: '/',
+  publicPath: '/',
   devServer: {
     proxy: {
       '/api': {
-        // target: 'http://localhost:3000',
-        target: 'https://big-middle-platform.herokuapp.com',
+        target: target,
         changeOrigin: true,
         ws: true,
         pathRewrite: {

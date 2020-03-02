@@ -18,8 +18,8 @@ const context = {
   }
 }
 Vue.use(context);
-
-Vue.config.productionTip = false
+// true为生产 false为本地
+Vue.config.productionTip = true
 
 new Vue({
   router,

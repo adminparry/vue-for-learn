@@ -43,6 +43,7 @@ export default {
 
 .content-view {
   /* 65和200切换 */
+  padding: 20px;
   margin-left: 200px;
   margin-top: 50px;
   min-height: 100vh;

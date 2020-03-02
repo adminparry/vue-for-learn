@@ -2,7 +2,7 @@
 <template>
   <div class="user-container">
     <div class="user-filter-container">
-      <el-input v-if="$permission(10)" placeholder="权限名称" class="username" v-model="Query.name"></el-input>
+      <el-input v-if="$permission(2)" placeholder="权限名称" class="username" v-model="Query.name"></el-input>
 
       <el-button
         class="search"
@@ -189,8 +189,7 @@ export default {
       });
     },
     roleAddXhr(data) {
-      data.deletedAt = "999";
-      data.id = 555;
+
       return this.$fetch({
         url: "/api/roles/add",
         method: "post",
