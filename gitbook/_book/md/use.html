@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>instance/index · GitBook</title>
+        <title>vue实例中添加方法 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="global-api_index.html" />
+    <link rel="next" href="lookup.html" />
     
     
-    <link rel="prev" href="core_index.html" />
+    <link rel="prev" href="pipe.html" />
     
 
     </head>
@@ -206,7 +206,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10" data-path="use.html">
+        <li class="chapter active" data-level="1.10" data-path="use.html">
             
                 <a href="use.html">
             
@@ -246,7 +246,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.11.2" data-path="instance_index.html">
+        <li class="chapter " data-level="1.11.2" data-path="instance_index.html">
             
                 <a href="instance_index.html">
             
@@ -476,7 +476,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >instance/index</a>
+        <a href=".." >vue实例中添加方法</a>
     </h1>
 </div>
 
@@ -491,37 +491,27 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { initMixin } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./init&apos;</span>
-<span class="hljs-keyword">import</span> { stateMixin } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./state&apos;</span>
-<span class="hljs-keyword">import</span> { renderMixin } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./render&apos;</span>
-<span class="hljs-keyword">import</span> { eventsMixin } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./events&apos;</span>
-<span class="hljs-keyword">import</span> { lifecycleMixin } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./lifecycle&apos;</span>
-<span class="hljs-keyword">import</span> { warn } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;../util/index&apos;</span>
+                                <h1 id="vue&#x5B9E;&#x4F8B;&#x4E2D;&#x6DFB;&#x52A0;&#x65B9;&#x6CD5;">vue&#x5B9E;&#x4F8B;&#x4E2D;&#x6DFB;&#x52A0;&#x65B9;&#x6CD5;</h1>
+<h3 id="use">use</h3>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
+<span class="hljs-keyword">import</span> App <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./App.vue&apos;</span>
 
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Vue</span> (<span class="hljs-params">options</span>) </span>{
-  <span class="hljs-keyword">if</span> (process.env.NODE_ENV !== <span class="hljs-string">&apos;production&apos;</span> &amp;&amp;
-    !(<span class="hljs-keyword">this</span> <span class="hljs-keyword">instanceof</span> Vue)
-  ) {
-    warn(<span class="hljs-string">&apos;Vue is a constructor and should be called with the `new` keyword&apos;</span>)
-  }
-  <span class="hljs-keyword">this</span>._init(options)
-}
+<span class="hljs-keyword">import</span> router <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./router&apos;</span>
+<span class="hljs-keyword">import</span> store <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./store&apos;</span>
 
-initMixin(Vue)
-stateMixin(Vue)
-eventsMixin(Vue)
-lifecycleMixin(Vue)
-renderMixin(Vue)
+<span class="hljs-keyword">import</span> fetcher <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./fetchers&apos;</span>
 
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> Vue
+
+
+Vue.config.productionTip = <span class="hljs-literal">false</span>
+
+<span class="hljs-keyword">new</span> Vue({
+  router,
+  store,
+  fetcher,
+  render: h =&gt; h(App)
+}).$mount(<span class="hljs-string">&apos;#app&apos;</span>)
 </code></pre>
-<p>&#x50CF;&#x8FD9;&#x6837;&#x7684;&#x4EE3;&#x7801;&#x6211;&#x4EEC;&#x53EF;&#x80FD;80%&#x80FD;&#x731C;&#x5230;&#x5728;new Vue&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x539F;&#x578B;&#x65B9;&#x6CD5;_init
-&#x8FD9;&#x51E0;&#x4E2A;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x4F30;&#x8BA1;&#x5C31;&#x662F;&#x5728;&#x539F;&#x578B;&#x4E0A;&#x6DFB;&#x52A0;&#x65B9;&#x6CD5; &#x7136;&#x540E;&#x6CA1;&#x4E2A;&#x65B9;&#x6CD5;&#x5BF9;&#x5E94;&#x505A;&#x7684;&#x662F;&#x4E00;&#x7C7B;&#x7684;&#x4E8B;&#x60C5;</p>
-<p><a href="init.html">initMixin</a></p>
-<p><a href="state.html">stateMixin</a></p>
-<p><a href="events.html">eventsMixin</a></p>
-<p><a href="lifecycle.html">lifecycleMixin</a></p>
-<p><a href="render.html">renderMixin</a></p>
 
                                 
                                 </section>
@@ -549,12 +539,12 @@ renderMixin(Vue)
 
             
                 
-                <a href="core_index.html" class="navigation navigation-prev " aria-label="Previous page: core/index">
+                <a href="pipe.html" class="navigation navigation-prev " aria-label="Previous page: 过滤器">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="global-api_index.html" class="navigation navigation-next " aria-label="Next page: global-api/index">
+                <a href="lookup.html" class="navigation navigation-next " aria-label="Next page: vue从熟悉api到熟悉源码">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -565,7 +555,7 @@ renderMixin(Vue)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"instance/index","level":"1.11.2","depth":2,"next":{"title":"global-api/index","level":"1.11.3","depth":2,"path":"md/global-api_index.md","ref":"./md/global-api_index.md","articles":[]},"previous":{"title":"core/index","level":"1.11.1","depth":2,"path":"md/core_index.md","ref":"./md/core_index.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/instance_index.md","mtime":"2019-04-16T12:40:43.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-02T06:25:03.082Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"vue实例中添加方法","level":"1.10","depth":1,"next":{"title":"vue从熟悉api到熟悉源码","level":"1.11","depth":1,"path":"md/lookup.md","ref":"./md/lookup.md","articles":[{"title":"core/index","level":"1.11.1","depth":2,"path":"md/core_index.md","ref":"./md/core_index.md","articles":[]},{"title":"instance/index","level":"1.11.2","depth":2,"path":"md/instance_index.md","ref":"./md/instance_index.md","articles":[]},{"title":"global-api/index","level":"1.11.3","depth":2,"path":"md/global-api_index.md","ref":"./md/global-api_index.md","articles":[]},{"title":"core/util/env","level":"1.11.4","depth":2,"path":"md/core_util_env.md","ref":"./md/core_util_env.md","articles":[]},{"title":"core/vdom/create-functional-component","level":"1.11.5","depth":2,"path":"md/core_vdom_create-functional-component.md","ref":"./md/core_vdom_create-functional-component.md","articles":[]},{"title":"init","level":"1.11.6","depth":2,"path":"md/init.md","ref":"./md/init.md","articles":[]},{"title":"initLifecycle","level":"1.11.7","depth":2,"path":"md/initLifecycle.md","ref":"./md/initLifecycle.md","articles":[]},{"title":"initEvents","level":"1.11.8","depth":2,"path":"md/initEvents.md","ref":"./md/initEvents.md","articles":[]},{"title":"initRender","level":"1.11.9","depth":2,"path":"md/initRender.md","ref":"./md/initRender.md","articles":[]},{"title":"callHook","level":"1.11.10","depth":2,"path":"md/callHook.md","ref":"./md/callHook.md","articles":[]},{"title":"initInjections","level":"1.11.11","depth":2,"path":"md/initInjections.md","ref":"./md/initInjections.md","articles":[]},{"title":"initState","level":"1.11.12","depth":2,"path":"md/initState.md","ref":"./md/initState.md","articles":[]},{"title":"initProvide","level":"1.11.13","depth":2,"path":"md/initProvide.md","ref":"./md/initProvide.md","articles":[]},{"title":"defineReactive","level":"1.11.14","depth":2,"path":"md/defineReactive.md","ref":"./md/defineReactive.md","articles":[]}]},"previous":{"title":"过滤器","level":"1.9","depth":1,"path":"md/pipe.md","ref":"./md/pipe.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"md/use.md","mtime":"2019-06-12T13:46:13.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-02T06:25:03.082Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

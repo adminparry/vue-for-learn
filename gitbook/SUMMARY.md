@@ -4,6 +4,10 @@
 
 * [vuex](./md/vuex.md)
 
+* [webpack配置vue](./md/webpack.md)
+
+* [生命周期](./md/vuex.md)
+
 * [表达式](./md/template.md)
 
 * [指令](./md/directive.md)

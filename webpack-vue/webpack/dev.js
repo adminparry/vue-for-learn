@@ -19,6 +19,11 @@ module.exports = merge(pre, {
         inline: true,
         port: 3800
     },
+    resolve: {
+        alias:{
+            vue$: "vue/dist/vue.esm.js", 
+        }
+    },
     devtool: 'source-map',
     plugins: [
         new VueLoaderPlugin(),
