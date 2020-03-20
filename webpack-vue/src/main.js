@@ -21,6 +21,11 @@ const routes = [
     { path: '/watch', component: () => import('./components/watch.vue') },
     { path: '/computed', component: () => import('./components/computed.vue') },
     { path: '/component', component: () => import('./components/component.vue') },
+    { path: '/ref', component: () => import('./components/ref.vue') },
+    { path: '/lifecycle', component: () => import('./components/lifecycle.vue') },
+    { path: '/slot', component: () => import('./components/slot.vue') },
+    { path: '/emit', component: () => import('./components/emit.vue') },
+    { path: '/transition', component: () => import('./components/transition.vue') },
      
     
 ]

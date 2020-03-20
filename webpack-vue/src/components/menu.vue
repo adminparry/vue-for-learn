@@ -13,6 +13,11 @@
         <li><router-link to="/computed">计算属性</router-link></li>
         <li><router-link to="/watch">监听属性</router-link></li>
         <li><router-link to="/component">组件</router-link></li>
+        <li><router-link to="/ref">dom节点</router-link></li>
+        <li><router-link to="/lifecycle">生命周期</router-link></li>
+        <li><router-link to="/slot">插槽</router-link></li>
+        <li><router-link to="/emit">emit</router-link></li>
+        <li><router-link to="/transition">transition</router-link></li>
         
     </ol>
 </template>

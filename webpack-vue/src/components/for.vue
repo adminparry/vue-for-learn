@@ -1,6 +1,6 @@
 <template>
     <ol>
-    <li v-for="todo in todos">
+    <li v-for="todo in todos" :key="todo.text">
       {{ todo.text }}
     </li>
   </ol>

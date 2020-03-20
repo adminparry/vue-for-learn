@@ -13,7 +13,11 @@ export default {
             console.log('阻止表单提交')
         },
         getValideCode(){
-            alert('验证码883666')
+            alert('验证码883666');
+            this.$emit('give-advice', Math.random())
+        },
+        defineEvent(){
+            console.log("by my self events")
         }
     }
 }

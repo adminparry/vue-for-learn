@@ -20,6 +20,7 @@ module.exports = merge(pre, {
         port: 3800
     },
     resolve: {
+        extensions: ['.vue', '.json', '.js'],
         alias:{
             vue$: "vue/dist/vue.esm.js", 
         }
