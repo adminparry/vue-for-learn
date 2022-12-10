@@ -18,7 +18,7 @@
     "core-js": "^2.6.5",
     "echarts": "^4.2.1",
     "element-ui": "^2.8.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-http-proxy": "^1.5.1",
     "graphql-type-json": "^0.2.1",
     "lowdb": "^1.0.0",
